@@ -5,6 +5,10 @@
 	line-height: 1;
 }
 
+html {
+	overflow: hidden;
+}
+
 .chess-h1, .chess-h2, .chess-h3, .chess-h4, .chess-h5, .chess-h6 {
 	color: var(--color-primary);
 	font-weight: 100;
@@ -34,7 +38,12 @@
 	font-size: 12px;
 }
 
+.chess-p {
+	font-size: 24px;
+}
+
 .chess-button {
+	width: 8vw;
 	text-transform: uppercase;
 	background: none;
 	outline: none;

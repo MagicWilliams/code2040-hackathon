@@ -32,3 +32,21 @@
 	height: 5vh;
 	width: 8vw;
 }
+
+#accountQuestions {
+	margin-top: 5vh;
+
+}
+
+#homeBody, #createAccount {
+	margin-top: 7vh;
+}
+
+#footer {
+	height: 10vh;
+	width: 101vw;
+	background-color: var(--color-primary);
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+}
