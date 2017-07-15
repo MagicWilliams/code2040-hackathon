@@ -32,8 +32,9 @@
 	height: 10vh;
 	width: 101vw;
 	background-color: var(--color-primary);
-	position: relative;
-	left: -4.5vw;
+	position: absolute;
+	left: 0px;
+	top: 0px;
 }
 
 #navBar .chess-button {
@@ -52,7 +53,8 @@
 }
 
 #homeBody, #createAccount {
-	margin-top: 7vh;
+	position: relative;
+	top: 17vh;
 	background-color: transparent;
 }
 
