@@ -1,3 +1,34 @@
+@import './variable-map.css';
+
+:root {
+	--color-text: #13203B; // almost black with some blue in it.
+	--color-white: #fff;
+	--color-primary: #5189FF;
+	--color-secondary: #28457F;
+	--color-tertiary: #3D67BF;
+}
+
 #logo {
-	width: 300px;
+	width: 7vh;
+	display: block;
+	margin: 0 auto;
+	padding-top: 1.5vh;
+}
+
+#navBar .col-md-12 {
+	height: 10vh;
+	width: 101vw;
+	background-color: var(--color-primary);
+	position: relative;
+	left: -4.5vw;
+}
+
+#navBar .chess-button {
+	position: absolute;
+	left: 88vw;
+	top: 0;
+	margin-top: 2.5vh;
+	line-height: 4vh;
+	height: 5vh;
+	width: 8vw;
 }
