@@ -8,6 +8,19 @@
 	--color-tertiary: #3D67BF;
 }
 
+#particles-js {
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  background-size: cover;
+  background-position: 50% -50%;
+  background-repeat: no-repeat;
+}
+
+.particles-js-canvas-el {
+	margin-top: -30%;
+}
+
 #logo {
 	width: 7vh;
 	display: block;
@@ -40,6 +53,7 @@
 
 #homeBody, #createAccount {
 	margin-top: 7vh;
+	background-color: transparent;
 }
 
 #footer {
