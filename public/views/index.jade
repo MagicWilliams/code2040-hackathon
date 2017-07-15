@@ -2,7 +2,7 @@ doctype
 html
     head
       title YERRRR
-      // link(rel='stylesheet', href='/stylesheets/home.css')
+      link(rel='stylesheet', href='/stylesheets/home.css')
       script(src="/static/js/jquery.js")
       script(src="/static/js/modernizr.js")
       script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
@@ -13,6 +13,11 @@ html
       link(rel='stylesheet', href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
       script(src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js")
 
-    body#body
-      h1 Yooooo
-      
+    body
+      nav#navBar
+        img#logo(src="/static/img/full-logo.png")
+      h3#titleMessage Chess is your new favorite background checking platform, <br> designed for both employees as well as employers.
+      p New to Chess? 
+        a(href="#") Create an account
+      p Returning user? 
+        a(href="#") Sign in
