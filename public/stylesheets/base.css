@@ -1,0 +1,51 @@
+@import './variable-map.css';
+
+* {
+	font-family: 'Raleway';
+	line-height: 1;
+}
+
+.chess-h1, .chess-h2, .chess-h3, .chess-h4, .chess-h5, .chess-h6 {
+	color: var(--color-primary);
+	font-weight: 100;
+}
+
+.chess-h1 {
+	font-size: 72px;
+}
+
+.chess-h2 {
+	font-size: 64px;
+}
+
+.chess-h3 {
+	font-size: 48px;
+}
+
+.chess-h4 {
+	font-size: 36px;
+}
+
+.chess-h5 {
+	font-size: 24px;
+}
+
+.chess-h6 {
+	font-size: 12px;
+}
+
+.chess-button {
+	text-transform: uppercase;
+	background: none;
+	outline: none;
+	border: 2px solid white;
+	color: white;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.chess-button:hover {
+	background-color: white;
+	color: black;
+}
