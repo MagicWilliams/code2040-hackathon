@@ -69,16 +69,6 @@ app.get('/oauth', (req, res) => {
   });
 });
 
-app.get('/profile', (req, res) => {
-  ref.once('value', (snapshot) => {
-    console.log(snapshot.val());
-    res.render('profile', { title: "Magic's Profile", data: JSON.stringify(snapshot.val()), profileData: null });
-  }, (errorObject) => {
-    console.log(`The read failed: ${errorObject.code}`);
-    res.render('profile', { title: "Magic's Profile", data: 'error' });
-  });
-});
-
 app.get('/recs', (req, res) => {
   ref.once('value', (snapshot) => {
     console.log(snapshot.val());
