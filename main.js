@@ -18,8 +18,6 @@ admin.initializeApp({
 const db = admin.database();
 const ref = db.ref('/');
 const app = express();
-
-
 // Attach an asynchronous callback to read the data at our posts reference
 
 app.use(express.static(`${__dirname}/public`));
@@ -44,6 +42,17 @@ app.get('/recs', (req, res) => {
   }, (errorObject) => {
     console.log(`The read failed: ${errorObject.code}`);
     res.render('recs', { title: 'Home', data: 'error' });
+  });
+});
+
+app.get('/:user', (req, res) => {
+  ref.once('value', (snapshot) => {
+    const userDb = snapshot.val().users;
+    console.log(userDb[req.params.user]);
+    res.render('profile', { title: "Magic's Profile", data: userDb[req.params.user] });
+  }, (errorObject) => {
+    console.log(`The read failed: ${errorObject.code}`);
+    res.render('profile', { title: "Magic's Profile", data: 'error' });
   });
 });
 
@@ -75,33 +84,6 @@ app.get('/sentiment/:text', (req, res) => {
         emotional.get(req.params.text)
       ),
     });
-  });
-});
-
-app.get('/user_exists/:name_id', (req, res) => {
-  ref.once('value', (snapshot) => {
-    const userDb = snapshot.val().users;
-    var params = req.params.name_id.split("_");
-    var name = params[0];
-    var id = params[1];
-    var user = userDb[id];
-    // No user
-    if (user == undefined){
-      createUserProfile(id, name);
-    }
-    res.redirect("http://c3fed6cd.ngrok.io/" + String(id));
-  });
-});
-
-// This one has to be at the end.
-app.get('/:user', (req, res) => {
-  ref.once('value', (snapshot) => {
-    const userDb = snapshot.val().users;
-    console.log(userDb[req.params.user]);
-    res.render('profile', { title: "Magic's Profile", data: userDb[req.params.user] });
-  }, (errorObject) => {
-    console.log(`The read failed: ${errorObject.code}`);
-    res.render('profile', { title: "Magic's Profile", data: 'error' });
   });
 });
 
