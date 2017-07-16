@@ -5,7 +5,7 @@ html {
 #identity {
 	position: relative;
 	top: 15vh;
-	left: 1.5vw;
+	left: 3.5vw;
 }
 
 #identity #profilePicture {
@@ -31,7 +31,7 @@ html {
 #profileHeadingText {
 	position: relative;
 	bottom: 120px;
-	left: 300px;
+	left: 330px;
 }
 
 #bio {
@@ -39,6 +39,8 @@ html {
 	font-style: italic;
 	width: 70%;
 	margin-bottom: 40px;
+	position: relative;
+	top: -70px;
 }
 
 .underline {
@@ -66,5 +68,7 @@ html {
 #infoPane {
 	position: absolute;
 	top: 55vh;
-	left: 2vw;
+	left: 4vw;
 }
+
+
