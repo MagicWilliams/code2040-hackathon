@@ -4,6 +4,8 @@ var admin = require('firebase-admin');
 var json3 = require('json3');
 var bodyParser = require('body-parser');
 var reviews = require('./public/static/js/reviews.json');
+var admin = require("firebase-admin");
+var emotional = require("emotional");
 
 // Fetch the service account key JSON file contents
 var serviceAccount = require('./code2040-hack-2c918-firebase-adminsdk-sw672-0f4d44db29.json');
@@ -50,4 +52,20 @@ app.get('/profile', function (req, res) {
 app.listen(app.get("port"), function () {
 	console.log('Listening on port ' + app.get("port") + '.');
 
+});
+
+function PROPRIETARY_MACHINE_LEARNING_NATURAL_LANGUAGE_PROCESSING_SENTIMENT_ANALYSIS_ALGORITHM(sentiment) {
+  return 45 * (sentiment.polarity + 1) + -10 * Math.sign(Math.sign(Math.sin(sentiment.polarity)) + Math.E / Math.PI) * Math.log(Math.abs(10 * sentiment.polarity * sentiment.subjectivity)) / Math.log(10);
+}
+
+app.get('/sentiment/:text', (req, res) => {
+  emotional.load(() => {
+    res.send({
+      text: req.params.text,
+      sentiment: emotional.get(req.params.text),
+      score: PROPRIETARY_MACHINE_LEARNING_NATURAL_LANGUAGE_PROCESSING_SENTIMENT_ANALYSIS_ALGORITHM(
+        emotional.get(req.params.text)
+      ),
+    });
+  });
 });
