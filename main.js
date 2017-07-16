@@ -50,9 +50,19 @@ app.get('/:user', function (req, res) {
   });
 });
 
-app.listen(app.get("port"), function () {
-	console.log('Listening on port ' + app.get("port") + '.');
+// Log in with Facebook
+app.get('/oauth', function (req, res) {
+  ref.once('value', function(snapshot) {
+    console.log(snapshot.val());
+    res.sendFile(__dirname + '/public/views/oauth.html');
+  }, function (errorObject) {
+    console.log('The read failed: ' + errorObject.code);
+    res.render('index', { title : 'oauth', data: 'error' });
+  });
+});
 
+app.listen(app.get('port'), function () {
+	console.log('Listening on port ' + app.get('port') + '.');
 });
 
 function PROPRIETARY_MACHINE_LEARNING_NATURAL_LANGUAGE_PROCESSING_SENTIMENT_ANALYSIS_ALGORITHM(sentiment) {
