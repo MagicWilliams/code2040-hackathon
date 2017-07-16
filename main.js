@@ -61,6 +61,16 @@ app.get('/oauth', function (req, res) {
   });
 });
 
+app.get('/recs', function (req, res) {
+  ref.once('value', function(snapshot) {
+    console.log(snapshot.val());
+    res.render('recs', { title : 'Home', data: JSON.stringify(snapshot.val()) });
+  }, function (errorObject) {
+    console.log('The read failed: ' + errorObject.code);
+    res.render('recs', { title : 'Home', data: 'error' });
+  });
+});
+
 app.listen(app.get('port'), function () {
 	console.log('Listening on port ' + app.get('port') + '.');
 });
