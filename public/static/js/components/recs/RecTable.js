@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const RecTable = (props) => {
   // Display nothing if no data provided
@@ -10,7 +11,8 @@ const RecTable = (props) => {
 
   const rows = props.users.map((user, index) =>
     <tr key={index}>
-      <td>{user.name}</td>
+      <td><img src={user.picture.thumbnail} /> {user.name.first} {user.name.last}</td>
+      <td>{user.email}</td>
     </tr>
   );
 
@@ -18,7 +20,8 @@ const RecTable = (props) => {
     <table className="table">
       <thead>
         <tr>
-          <td>Some random text</td>
+          <td>Name</td>
+          <td>Email</td>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +29,10 @@ const RecTable = (props) => {
       </tbody>
     </table>
   );
+};
+
+RecTable.propTypes = {
+  users: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default RecTable;
