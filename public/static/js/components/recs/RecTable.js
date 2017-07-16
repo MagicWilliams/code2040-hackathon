@@ -17,7 +17,9 @@ const RecTable = (props) => {
   return (
     <table className="table">
       <thead>
-        Some random text
+        <tr>
+          <td>Some random text</td>
+        </tr>
       </thead>
       <tbody>
         {rows}

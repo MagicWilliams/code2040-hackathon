@@ -12,6 +12,21 @@
 	height: 100vh;
 	width: 100vw;
 	position: absolute;
+	margin-top: -30%;
+}
+
+#logo {
+	width: 7vh;
+	display: block;
+	margin: 0 auto;
+	padding-top: 1.5vh;
+}
+
+#navBar .col-md-12 {
+	height: 10vh;
+	width: 101vw;
+	background-color: var(--color-primary);
+	left: 0px;
 	top: 0px;
 	left: 0px;
 	z-index: -1;

@@ -21,6 +21,10 @@ const data = {
       name: 'Jessica Ko',
       photo_url: null
     },
+    {
+      name: 'Omayeli the Liar',
+      photo_url: null
+    }
   ]
 };
 

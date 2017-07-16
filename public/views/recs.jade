@@ -3,10 +3,16 @@ html
   head
     title Recommendations
     link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/stylesheets/base.css')
-  body.container
-    h1 Hiya
-    //- content div to be populated later
-    #content
+    link(rel='stylesheet', href='./../stylesheets/base.css')
+    link(rel='stylesheet', href='./../stylesheets/home.css')
+  body.container-fluid
+    .row
+      #navBar
+        .col-md-12
+          img#logo(src="/static/img/badge.png")
+          button.chess-button About
+    //- content div to be populated by React
+    .col-md-12
+      #content
 
     script(src='./../static/js/bundle_recs.js')
