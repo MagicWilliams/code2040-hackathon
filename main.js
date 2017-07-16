@@ -21,7 +21,6 @@ admin.initializeApp({
 const db = admin.database();
 const ref = db.ref('/');
 const app = express();
-
 // Attach an asynchronous callback to read the data at our posts reference
 
 app.use(express.static(`${__dirname}/public`));
