@@ -8,8 +8,9 @@ html
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
     script(src="/static/js/react.min.js")
     script(src="/static/js/react-dom.min.js")
+    script(src="/static/js/graph.js")
     script(src="/static/js/browser.min.js")
-
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
     link(rel='stylesheet', href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
     script(src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js")
 
@@ -23,13 +24,37 @@ html
           #identity.imgCropper
             img#profilePicture(src="#{data.image}")
           #profileHeadingText
-            h2#profileName.chess-h3 #{data.username}
-            h5.chess-h5#bio #{data.bio}
-            div
-              h2 Reviews
+            h2#profileName.chess-h3.bold #{data.username}
+            .stars
+              form(action='')
+                input#star-5.star.star-5(type='radio', name='star')
+                label.star.star-5(for='star-5')
+                input#star-4.star.star-4(type='radio', name='star', checked="checked")
+                label.star.star-4(for='star-4')
+                input#star-3.star.star-3(type='radio', name='star')
+                label.star.star-3(for='star-3')
+                input#star-2.star.star-2(type='radio', name='star')
+                label.star.star-2(for='star-2')
+                input#star-1.star.star-1(type='radio', name='star')
+                label.star.star-1(for='star-1')
+            h5.chess-h5#bio Hi I'm Tasti lmaooo
+            div#reviewSec
+              h2.bold Reviews
               h4#reviewDesc Reviews are submitted by friends, family, and employers that can speak to a candidate's progression in work ethic, development of character, and advancement of ability.
               #reviews
                 h4.chess-h4 #{data.reviews}
+            div#tags
+              h2.bold Tags
+              h4#tagDesc These are the characteristics most commonly recognized in #{data.username} by reviewers.
+              .bar-chart.primary(data-total='76', animated='')
+                span.bar-chart--inner(style='width:76%;')
+                span.bar-chart--text.bold Dependable - 76%
+              .bar-chart.secondary(data-total='42', animated='')
+                span.bar-chart--inner(style='width:88%;')
+                span.bar-chart--text.bold Hardworking - 88%
+              .bar-chart.tertiary(data-total='82', animated='')
+                span.bar-chart--inner(style='width:62%;')
+                span.bar-chart--text.bold Overqualified - 62%
           div#infoPane
             h4.chess-h4.underline Contact
             h5.chess-h5 P -- (562) 884-2006

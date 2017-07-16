@@ -6,9 +6,6 @@ const bodyParser = require('body-parser');
 const reviews = require('./public/static/js/reviews.json');
 const emotional = require('emotional');
 
-var app = express();
-app.use(express.static(__dirname + '/public'));
-
 // Fetch the service account key JSON file contents
 const serviceAccount = require('./code2040-hack-2c918-firebase-adminsdk-sw672-0f4d44db29.json');
 
