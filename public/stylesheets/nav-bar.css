@@ -1,0 +1,18 @@
+#navBar .col-md-12 {
+	height: 10vh;
+	width: 100%;
+	background-color: var(--color-primary);
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#navBar .chess-button {
+	position: absolute;
+	left: 88vw;
+	top: 0;
+	margin-top: 2.5vh;
+	line-height: 4vh;
+	height: 5vh;
+	width: 8vw;
+}

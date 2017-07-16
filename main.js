@@ -34,6 +34,16 @@ app.get('/', function (req, res) {
   });
 });
 
+app.get('/profile', function (req, res) {
+  ref.once('value', function(snapshot) {
+    console.log(snapshot.val());
+    res.render('profile', { title : "Magic's Profile", data: JSON.stringify(snapshot.val()) });
+  }, function (errorObject) {
+    console.log('The read failed: ' + errorObject.code);
+    res.render('profile', { title : "Magic's Profile", data: 'error' });
+  });
+});
+
 app.listen(app.get("port"), function () {
 	console.log('Listening on port ' + app.get("port") + '.');
 
