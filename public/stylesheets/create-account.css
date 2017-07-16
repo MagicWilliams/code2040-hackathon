@@ -1,0 +1,44 @@
+#createAccount {
+	margin-top: 2vh;
+	background-color: var(--color-primary);
+	width: 300px;
+}
+
+#createAccount .chess-h5 {
+	color: white;
+	margin-top: 20px;
+}
+
+#createAccount #form {
+	display: block;
+}
+
+.chess-input {
+	margin-right: 20px;
+	border-color: white;
+	color: white;
+	margin-bottom: 20px;
+}
+
+.chess-input:focus {
+	border-color: black;
+}
+
+::-webkit-input-placeholder {
+	opacity: 50%;
+	color: white;
+}
+
+#createAccount input[type=submit] {
+	background-color: transparent;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	height: 30px;
+	line-height: 25px;
+	color: white;
+}
+
+#createAccount input[type=submit]:hover {
+	border-color: black;
+	color: white;
+}

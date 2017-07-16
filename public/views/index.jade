@@ -29,12 +29,12 @@ html
               p.chess-p Returning user? 
                 a(href="#") Sign in
           .col-md-4#createAccount
-            h4 Create an account today.
+            h5.chess-h5 Create an account and get referred today
+            <hr>
             form#form
-              input(type="text")#firstName
-              input(type="text")#lastName
-              input(type="text")#firstName
-              input(type="text")#firstName
+              input(type="text" placeholder="Full name")#firstName.chess-input
+              input(type="text" placeholder="Email address")#email.chess-input.chess-input-long
+              input(type="submit" value="SUBMIT").chess-button
           #footer
             
       // scripts

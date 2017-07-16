@@ -1,4 +1,5 @@
 @import './variable-map.css';
+@import './create-account.css';
 
 :root {
 	--color-text: #13203B; // almost black with some blue in it.
@@ -49,12 +50,14 @@
 
 #accountQuestions {
 	margin-top: 5vh;
-
 }
 
 #homeBody, #createAccount {
 	position: relative;
 	top: 17vh;
+}
+
+#homeBody {
 	background-color: transparent;
 }
 

@@ -15,6 +15,15 @@ app.get('/', function (req, res) {
   )
 });
 
+
+app.get('/recs', function (req, res) {
+  res.render('recs',
+  { title : 'Recs' }
+  )
+});
+
+
+
 app.listen(app.get("port"), function () {
 	console.log('Listening on port ' + app.get("port") + '.');
 });
