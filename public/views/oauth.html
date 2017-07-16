@@ -86,10 +86,23 @@
         'Thanks for logging in, ' + response.name + '!';
     });
   }
+  function logout() {
+    FB.api('/me', function(response) {
+      document.getElementById('status').innerHTML =
+        'Thanks for logging out, ' + response.name + '!';
+    });
+    FB.logout(function(response) {
+    // user is now logged out
+    console.log('Successful loggout');
+    console.log(response);
+    });
+  }
 </script>
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
+
+<button onclick="javascript:logout();">Logout from Facebook</button>
 
 <div id="status">
 </div>
