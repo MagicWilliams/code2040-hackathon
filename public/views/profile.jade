@@ -2,7 +2,7 @@ doctype
 html
   head
     title Chess - Hire smart.
-    link(rel='stylesheet', href='/stylesheets/master.css')
+    link(rel='stylesheet', href='/stylesheets/profile.css')
     script(src="/static/js/jquery.js")
     script(src="/static/js/modernizr.js")
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
@@ -18,4 +18,18 @@ html
       .col-md-12
         img#logo(src="/static/img/badge.png")
         button.chess-button About
+      .row
+        .col-md-12#profile
+          #identity.imgCropper
+            img#profilePicture(src="/static/img/headshot.png")
+          #profileHeadingText
+            h2#profileName.chess-h3 Magic Williams
+            h5.chess-h5#bio Hi, my name is Magic Williams. I would love a chance to connect and speak with you on my professionalism and career goals. You can always contact me at (562) 884-2006. Thanks!
+          #reviews
+          div#infoPane
+            h4.chess-h4.underline Contact
+            h5.chess-h5 P -- (562) 884-2006
+            h5.chess-h5 E -- MWilliams@gmail.com
+
+
 
