@@ -138,5 +138,3 @@ function updateScore(userId, score){
     score: score
   });
 }
-
-updateImage("userId1", "/static/img/headshot.png");
