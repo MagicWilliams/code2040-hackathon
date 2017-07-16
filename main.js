@@ -50,7 +50,7 @@ app.get('/recs', (req, res) => {
 app.get('/:user', (req, res) => {
   ref.once('value', (snapshot) => {
     const userDb = snapshot.val().users;
-    console.log(userDb);
+    console.log(userDb[req.params.user]);
     res.render('profile', { title: "Magic's Profile", data: userDb[req.params.user] });
   }, (errorObject) => {
     console.log(`The read failed: ${errorObject.code}`);
@@ -158,4 +158,4 @@ function updateScore(userId, score) {
   });
 }
 
-updateImage('userId1', '/static/img/headshot.png');
+updateImage('userId3', '/static/img/david.png');

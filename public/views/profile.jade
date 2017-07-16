@@ -29,38 +29,13 @@ html
               h2 Reviews
               h4#reviewDesc Reviews are submitted by friends, family, and employers that can speak to a candidate's progression in work ethic, development of character, and advancement of ability.
               #reviews
+                .imgCropper.reviewerCropper
+                  img.reviewerPic()
+                h4.chess-h4 #{data.reviews}
+                
           div#infoPane
             h4.chess-h4.underline Contact
             h5.chess-h5 P -- (562) 884-2006
             h5.chess-h5 E -- MWilliams@gmail.com
-    script(type="text/babel").
-      var Review = React.createClass({
-        render: function(){
-          return(
-            <div className="review">
-              <h4>{this.props.reviewerName}</h4>
-              <a href={this.props.reviewerURL}>
-                <img className="reviewerPicture" src={this.props.reviewerPicture} alt=""/>
-              </a>
-              <p className="reviewBody">{this.props.reviewBody}</p>
-              <img src="" alt="more"/>
-            </div>
-          );
-        }
-      });
-      
-      var ReviewSection = React.createClass({
-        render: function(){
-          return(
-            <div id="ReviewSection">
-              <Review name="#{data.username}" reviewerPicture="#{data.image}" reviewerURL="#{data}" url="https://github.com/MagicWilliams" />
-            </div>
-          );
-        }
-      });
-
-      ReactDOM.render(<ReviewSection/>, document.getElementById('reviews'));
-        </script>
-
-
+    
 
