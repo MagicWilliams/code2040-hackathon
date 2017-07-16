@@ -25,7 +25,6 @@ app.set('port', (process.env.PORT || 2040));
 
 app.get('/', function (req, res) {
   ref.once('value', function(snapshot) {
-    console.log(snapshot.val());
     res.render('index', { title : 'Home', data: JSON.stringify(snapshot.val()) });
   }, function (errorObject) {
     console.log('The read failed: ' + errorObject.code);
@@ -37,29 +36,10 @@ app.listen(app.get('port'), function () {
 	console.log('Listening on port ' + app.get('port') + '.');
 });
 
-// Template for the data to be stored
-// revieweesRef.set ({
-//    userId1: {
-//       name: "Person A",
-//       bio: "This is a test bio."
-//       // img: 'public/static/img/sample_profile_img'
-//       // facebook: https:www.facebook.com/profile.php?id=100002315758201
-//       // twitter: https:twitter.com/abdul_ali5
-//       // linkedin: https:www.linkedin.com/in/abdul-ali19/
-//       reviews: { reviewerId1: answers, reviewerId2: answers }
-//    },
-//    userId2: {
-//       name: "Person B",
-//       reviews: {reviewerId1: "review1", reviewerId2: "review2"}
-//    },
-// });
-
-function createUserProfile(userId, name, email /*imageUrl */) {
-  return db.ref('users/' + userId).set({
+function createUserProfile(userId, name) {
+  db.ref('users/' + userId).set({
     username: name,
-    email: email,
-    reviews: [{"key1": "value1"}],
-    //profile_picture : imageUrl
+    reviews: [{"key1": "value1"}], // Dummy values to initialize the reviews array as non-empty. skip the 0th index when accessing reviews
   });
 }
 
@@ -71,21 +51,45 @@ function submitReview(userId, reviewerId, review) {
   return userRef.once('value').then(function(snapshot) {
     var reviews = snapshot.val().reviews
     reviews[reviewerId] = review
-    console.log(reviews);
-
-    return reviewsRef.set(reviews);
+    reviewsRef.set(reviews);
+  });
+}
+// Use to set/update bio
+function updateBio(userId, bio) {
+  db.ref('users/' + userId).update({
+    bio: bio
+  });
+}
+// Use to set/update profile photo
+function updateImage(userId, imageUrl) {
+  db.ref('users/' + userId).update({
+    image: imageUrl
+  });
+}
+// Use to link fb account
+function updateFb(userId, fbUrl){
+  db.ref('users/' + userId).update({
+    facebook: fbUrl
   });
 }
 
-userId1 = "userId1";
-reviewerId1 = "reviewerId1";
-review1 = ["answer1", "answer2"];
+// Use to link twitter account
+function updateTwitter(userId, twitterUrl){
+  db.ref('users/' + userId).update({
+    twitter: twitterUrl
+  });
+}
 
-reviewerId2 = "reviewerId2";
-review2 = ["answer3", "answer4"];
+// Use to link linkedin account
+function updateLinkedin(userId, linkedinUrl){
+  db.ref('users/' + userId).update({
+    linkedin: linkedinUrl
+  });
+}
 
-createUserProfile(userId1, "AbdulA", "aliabdul5@gmail.com").then(function(){
-  submitReview(userId1, reviewerId1, review1).then(function(){
-  submitReview(userId1, reviewerId2, review2)
-});
-});
+// Use to store user score
+function updateScore(userId, score){
+  db.ref('users/' + userId).update({
+    score: score
+  });
+}
