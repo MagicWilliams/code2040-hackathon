@@ -69,7 +69,6 @@ app.get('/oauth', (req, res) => {
   });
 });
 
-<<<<<<< eaefe30f42c687d950eaf6e6746f5fbfc0b06fc4
 app.get('/profile', (req, res) => {
   ref.once('value', (snapshot) => {
     console.log(snapshot.val());
@@ -91,19 +90,7 @@ app.get('/recs', (req, res) => {
 });
 
 app.listen(app.get('port'), () => {
-<<<<<<< 0decd4d1a59bd9bac6e76a42958af51d3b4860f3
-  console.log(`Listening on port ${app.get('port') }.`);
-=======
-app.listen(app.get('port'), () => {
-<<<<<<< 549d444be005a0bd5b906ab50034d4d25494776b
-	console.log('Listening on port ' + app.get('port') + '.');
->>>>>>> Remove extraneous log, ES6
-=======
-  console.log(`Listening on port ${  app.get('port')  }.`);
->>>>>>> Update some main.js tings
-=======
   console.log(`Listening on port ${app.get('port')}.`);
->>>>>>> Fix thingie
 });
 
 function PROPRIETARY_MACHINE_LEARNING_NATURAL_LANGUAGE_PROCESSING_SENTIMENT_ANALYSIS_ALGORITHM(sentiment) {
@@ -180,11 +167,5 @@ function updateScore(userId, score) {
     score
   });
 }
-<<<<<<< 0decd4d1a59bd9bac6e76a42958af51d3b4860f3
-<<<<<<< 549d444be005a0bd5b906ab50034d4d25494776b
-=======
 
 updateImage('userId1', '/static/img/headshot.png');
->>>>>>> Update some main.js tings
-=======
->>>>>>> Fix thingie
