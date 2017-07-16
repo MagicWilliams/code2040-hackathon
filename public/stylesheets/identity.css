@@ -1,0 +1,65 @@
+html {
+	overflow-x: hidden;
+}
+
+#identity {
+	position: relative;
+	top: 15vh;
+	left: 1.5vw;
+}
+
+#identity #profilePicture {
+	display: inline;
+}
+
+.imgCropper {
+	height: 250px;
+	width: 250px;
+	overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.imgCropper img {
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#profileHeadingText {
+	position: relative;
+	bottom: 120px;
+	left: 300px;
+}
+
+#bio {
+	color: var(--color-text);
+	font-style: italic;
+	width: 70%;
+	margin-bottom: 40px;
+}
+
+.underline {
+	border-bottom: 2px solid var(--color-primary);
+	margin-bottom: 25px;
+	width: 13.4vw;
+}
+
+#infoPane {
+	position: relative;
+	text-align: left;
+	left: 2vw;
+	top: -2vh;
+}
+
+#infoPane h5 {
+	font-size: 1.5em;
+}
+
+#reviewDesc {
+	color: var(--color-text);
+	width: 60%;
+}

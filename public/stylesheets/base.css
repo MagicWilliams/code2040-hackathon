@@ -5,10 +5,6 @@
 	line-height: 1;
 }
 
-html {
-	overflow: hidden;
-}
-
 .chess-h1, .chess-h2, .chess-h3, .chess-h4, .chess-h5, .chess-h6 {
 	color: var(--color-primary);
 	font-weight: 100;
@@ -75,4 +71,6 @@ html {
 .chess-button:hover {
 	background-color: white;
 	color: black;
+}
+
 }
