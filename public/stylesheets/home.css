@@ -10,8 +10,6 @@
 }
 
 #particles-js {
-  width: 100vw;
-  height: 100vh;
   background-color: transparent;
   background-size: cover;
   background-position: 50% -50%;
@@ -19,8 +17,13 @@
 }
 
 .particles-js-canvas-el {
-	margin-top: -30%;
-}
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
+ }
 
 #logo {
 	width: 7vh;
@@ -31,7 +34,7 @@
 
 #navBar .col-md-12 {
 	height: 10vh;
-	width: 101vw;
+	width: 100%;
 	background-color: var(--color-primary);
 	position: absolute;
 	left: 0px;
@@ -63,7 +66,7 @@
 
 #footer {
 	height: 10vh;
-	width: 101vw;
+	width: 100vw;
 	background-color: var(--color-primary);
 	position: absolute;
 	left: 0px;
