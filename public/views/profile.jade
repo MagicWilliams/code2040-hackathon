@@ -25,11 +25,46 @@ html
           #profileHeadingText
             h2#profileName.chess-h3 Magic Williams
             h5.chess-h5#bio Hi, my name is Magic Williams. I would love a chance to connect and speak with you on my professionalism and career goals. You can always contact me at (562) 884-2006. Thanks!
-          #reviews
+            #reviews
+              h2 Reviews
+              h4#reviewDesc Reviews are submitted by friends, family, and employers that can speak to a candidate's progression in work ethic, development of character, and advancement of ability.
           div#infoPane
             h4.chess-h4.underline Contact
             h5.chess-h5 P -- (562) 884-2006
             h5.chess-h5 E -- MWilliams@gmail.com
+    script(type="text/babel").
+      for each(review in #{profileData})
+        console.log(review);
+      var Review = React.createClass({
+        render: function(){
+          return(
+            <div className="review">
+              <h4>{this.props.reviewerName}</h4>
+              <a href={this.props.reviewerURL}>
+                <img src={this.props.reviewerPicture} alt=""/>
+              </a>
+              <p className="reviewBody">{this.props.reviewBody}</p>
+              <img src="" alt="more"/>
+            </div>
+          );
+        }
+      });
+      
+      var ReviewSection = React.createClass({
+        render: function(){
+          return(
+            <div id="ReviewSection">
+              <Review name="david" url="https://github.com/MagicWilliams" />
+              <Review name="github" url="https://github.com/MagicWilliams" />
+              <Review name="github" url="https://github.com/MagicWilliams" />
+              <Review name="github" url="https://github.com/MagicWilliams" />
+            </div>
+          );
+        }
+      });
+
+      ReactDOM.render(<ReviewSection/>, document.getElementById('reviews'));
+        </script>
 
 
 

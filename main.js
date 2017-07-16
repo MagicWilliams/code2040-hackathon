@@ -1,6 +1,9 @@
 var express = require('express');
 var path = require('path');
 var admin = require('firebase-admin');
+var json3 = require('json3');
+var bodyParser = require('body-parser');
+var reviews = require('./public/static/js/reviews.json');
 
 // Fetch the service account key JSON file contents
 var serviceAccount = require('./code2040-hack-2c918-firebase-adminsdk-sw672-0f4d44db29.json');
@@ -37,7 +40,7 @@ app.get('/', function (req, res) {
 app.get('/profile', function (req, res) {
   ref.once('value', function(snapshot) {
     console.log(snapshot.val());
-    res.render('profile', { title : "Magic's Profile", data: JSON.stringify(snapshot.val()) });
+    res.render('profile', { title : "Magic's Profile", data: JSON.stringify(snapshot.val()), profileData: null});
   }, function (errorObject) {
     console.log('The read failed: ' + errorObject.code);
     res.render('profile', { title : "Magic's Profile", data: 'error' });

@@ -1,3 +1,7 @@
+html {
+	overflow-x: hidden;
+}
+
 #identity {
 	position: relative;
 	top: 15vh;
@@ -53,4 +57,9 @@
 
 #infoPane h5 {
 	font-size: 1.5em;
+}
+
+#reviewDesc {
+	color: var(--color-text);
+	width: 60%;
 }
