@@ -18,7 +18,6 @@ admin.initializeApp({
 
 var db = admin.database();
 var ref = db.ref('/');
-
 var app = express();
 
 // Attach an asynchronous callback to read the data at our posts reference
@@ -31,7 +30,6 @@ app.set('port', (process.env.PORT || 2040));
 
 app.get('/', function (req, res) {
   ref.once('value', function(snapshot) {
-    console.log(snapshot.val());
     res.render('index', { title : 'Home', data: JSON.stringify(snapshot.val()) });
   }, function (errorObject) {
     console.log('The read failed: ' + errorObject.code);
@@ -69,3 +67,61 @@ app.get('/sentiment/:text', (req, res) => {
     });
   });
 });
+
+function createUserProfile(userId, name) {
+  db.ref('users/' + userId).set({
+    username: name,
+    reviews: [{"key1": "value1"}], // Dummy values to initialize the reviews array as non-empty. skip the 0th index when accessing reviews
+  });
+}
+
+// note: review is an array of answers where each index is the answer to a
+// different question
+function submitReview(userId, reviewerId, review) {
+  var userRef = db.ref('users/' + userId)
+  var reviewsRef = userRef.child("reviews")
+  return userRef.once('value').then(function(snapshot) {
+    var reviews = snapshot.val().reviews
+    reviews[reviewerId] = review
+    reviewsRef.set(reviews);
+  });
+}
+// Use to set/update bio
+function updateBio(userId, bio) {
+  db.ref('users/' + userId).update({
+    bio: bio
+  });
+}
+// Use to set/update profile photo
+function updateImage(userId, imageUrl) {
+  db.ref('users/' + userId).update({
+    image: imageUrl
+  });
+}
+// Use to link fb account
+function updateFb(userId, fbUrl){
+  db.ref('users/' + userId).update({
+    facebook: fbUrl
+  });
+}
+
+// Use to link twitter account
+function updateTwitter(userId, twitterUrl){
+  db.ref('users/' + userId).update({
+    twitter: twitterUrl
+  });
+}
+
+// Use to link linkedin account
+function updateLinkedin(userId, linkedinUrl){
+  db.ref('users/' + userId).update({
+    linkedin: linkedinUrl
+  });
+}
+
+// Use to store user score
+function updateScore(userId, score){
+  db.ref('users/' + userId).update({
+    score: score
+  });
+}
