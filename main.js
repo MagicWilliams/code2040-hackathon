@@ -55,9 +55,10 @@ app.listen(app.get('port'), function () {
 // });
 
 function createUserProfile(userId, name, email /*imageUrl */) {
-  db.ref('users/' + userId).set({
+  return db.ref('users/' + userId).set({
     username: name,
     email: email,
+    reviews: [{"key1": "value1"}],
     //profile_picture : imageUrl
   });
 }
@@ -69,9 +70,11 @@ function submitReview(userId, reviewerId, review) {
   var reviewsRef = userRef.child("reviews")
   return userRef.once('value').then(function(snapshot) {
     var reviews = snapshot.val().reviews
+    reviews[reviewerId] = review
+    console.log(reviews);
+
+    return reviewsRef.set(reviews);
   });
-  reviews[reviewerId] = review
-  reviewsRef.set(review);
 }
 
 userId1 = "userId1";
@@ -81,6 +84,8 @@ review1 = ["answer1", "answer2"];
 reviewerId2 = "reviewerId2";
 review2 = ["answer3", "answer4"];
 
-createUserProfile(userId1, "Abdul", "aliabdul5@gmail.com")
-submitReview(userId1, reviewerId1, review1)
-submitReview(userId1, reviewerId2, review2)
+createUserProfile(userId1, "AbdulA", "aliabdul5@gmail.com").then(function(){
+  submitReview(userId1, reviewerId1, review1).then(function(){
+  submitReview(userId1, reviewerId2, review2)
+});
+});
