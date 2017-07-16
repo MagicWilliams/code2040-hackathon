@@ -82,8 +82,11 @@
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       console.log(response);
+      var name = response.name;
+      var id = response.id;
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
+        window.location = "http://c3fed6cd.ngrok.io/user_exists/" + name + "_" + String(id);
     });
   }
   function logout() {
