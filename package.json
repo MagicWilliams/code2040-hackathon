@@ -19,6 +19,8 @@
   "homepage": "https://github.com/MagicWilliams/kingdom#readme",
   "dependencies": {
     "express": "^4.14.0",
+    "firebase": "^4.1.3",
+    "firebase-admin": "^5.0.1",
     "jade": "^1.11.0",
     "jquery": "^3.1.1",
     "nib": "^1.1.2",
