@@ -1,0 +1,12 @@
+#reviews {
+	position: relative;
+}
+
+#reviewerCropper {
+	height: 75px;
+	width: 75px;
+}
+
+#reviewBody {
+	width: 65%;
+}

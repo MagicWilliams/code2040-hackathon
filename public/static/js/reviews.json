@@ -1,0 +1,33 @@
+{
+  "name": "Magic Williams",
+  "reviews": {
+    "review": {
+      "reviewer": "Jennifer Hudson",
+      "rating": 9.1,
+      "reviewerURL": "https://twitter.com",
+      "reviewerProfilePic": "/static/img/headshot.png",
+      "reviewBody": "I worked with Magic 2 years ago at Martha's vineyard, and I thoroughly enjoyed having him as a coworker. Tremendous work ethic, and a one-of-a-kind personality."
+    },
+    "review": {
+      "reviewer": "Abdul Ali Hudson",
+      "rating": 4,
+      "reviewerURL": "https://instagram.com",
+      "reviewerProfilePic": "/static/img/headshot.png",
+      "reviewBody": "Do not hire, mans lowkey buns"
+    },
+    "review": {
+      "reviewer": "Jennifer Hudson",
+      "rating": 7.1,
+      "reviewerURL": "https://facebook.com",
+      "reviewerProfilePic": "/static/img/headshot.png",
+      "reviewBody": "First is the worst, second is the best, and third is TYPE LIT JUUUU JEAAARRRD"
+    },
+    "review": {
+      "reviewer": "Jennifer Hudson",
+      "rating": 10,
+      "reviewerURL": "https://cnn.com",
+      "reviewerProfilePic": "/static/img/headshot.png",
+      "reviewBody": "This is review 4"
+    }
+  }
+}

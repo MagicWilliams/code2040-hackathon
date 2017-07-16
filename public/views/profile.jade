@@ -1,0 +1,64 @@
+doctype
+html
+  head
+    title Chess - Hire smart.
+    link(rel='stylesheet', href='/stylesheets/profile.css')
+    script(src="/static/js/jquery.js")
+    script(src="/static/js/modernizr.js")
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="/static/js/react.min.js")
+    script(src="/static/js/react-dom.min.js")
+    script(src="/static/js/browser.min.js")
+
+    link(rel='stylesheet', href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+    script(src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js")
+
+  body.container
+    div#navBar.row
+      .col-md-12
+        img#logo(src="/static/img/badge.png")
+        button.chess-button About
+      .row
+        .col-md-12#profile
+          #identity.imgCropper
+            img#profilePicture(src="#{data.image}")
+          #profileHeadingText
+            h2#profileName.chess-h3 #{data.username}
+            h5.chess-h5#bio #{data.bio}
+            div
+              h2 Reviews
+              h4#reviewDesc Reviews are submitted by friends, family, and employers that can speak to a candidate's progression in work ethic, development of character, and advancement of ability.
+              #reviews
+                h4.chess-h4 #{data.reviews}
+          div#infoPane
+            h4.chess-h4.underline Contact
+            h5.chess-h5 P -- (562) 884-2006
+            h5.chess-h5 E -- MWilliams@gmail.com
+    script(type="text/babel").
+      var Review = React.createClass({
+        render: function(){
+          return(
+            <div>
+              <h4>{this.props.reviewer}</h4>
+              <p id="reviewBody" className="chess-p">{this.props.reviewBody}</p>
+            </div>
+          );
+        }
+      });
+      
+      var ReviewSection = React.createClass({
+        render: function(){
+          return(
+            <div id="ReviewSection">
+              <Review name="#{data.username}" reviewerPicture="#{data.reviews[0].image}" reviewerURL="#{data}" reviewer="#{data.reviews[0].key1)" reviewBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae dolor non velit finibus pharetra." />
+              <Review name="#{data.username}" reviewerPicture="#{data.reviews[0].image}" reviewerURL="#{data}" reviewer="#{data.reviews[0].key1)" reviewBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae dolor non velit finibus pharetra." />
+              <Review name="#{data.username}" reviewerPicture="#{data.reviews[0].image}" reviewerURL="#{data}" reviewer="#{data.reviews[0].key1)" reviewBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae dolor non velit finibus pharetra." />
+            </div>
+          );
+        }
+      });
+
+      ReactDOM.render(<ReviewSection/>, document.getElementById('reviews'));
+        </script>
+    
+
