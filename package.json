@@ -20,6 +20,16 @@
   "homepage": "https://github.com/MagicWilliams/kingdom#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
+<<<<<<< HEAD
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "jade": "^1.11.0",
+    "jquery": "^3.1.1",
+    "ngrok": "^2.2.14",
+    "nib": "^1.1.2",
+    "stylus": "^0.54.5",
+    "twilio": "^3.5.0"
+=======
     "emotional": "0.0.3",
     "axios": "^0.16.2",
     "express": "^4.14.0",
@@ -35,6 +45,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "stylus": "^0.54.5"
+>>>>>>> origin/master
   },
   "engines": {
     "node": "6.9.1"
