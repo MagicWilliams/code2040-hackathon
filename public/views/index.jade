@@ -15,14 +15,48 @@ html
       script(src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js")
 
     body.container
-      .row
-        #navBar
-          .col-md-12
-            img#logo(src="/static/img/badge.png")
-            button.chess-button Log In
-        .col-md-8
-          h3.chess-h3#titleMessage Chess is your new favorite background checking platform, <br> designed for both employees as well as employers. #{data}
-          p New to Chess?
-            a(href="#") Create an account
-          p Returning user?
-            a(href="#") Sign in
+      #particles-js
+        .row
+          #navBar
+            .col-md-12
+              img#logo(src="/static/img/badge.png")
+              button.chess-button About
+          .col-md-8#homeBody
+            h3.chess-h3#titleMessage Designed for both employees as well as employers, <br> Chess is your new favorite background checking platform. <br> 
+            div#accountQuestions
+              p.chess-p New to Chess? 
+                a(href="#") Create an account
+              p.chess-p Returning user? 
+                a(href="#") Sign in
+          .col-md-4#createAccount
+            h5.chess-h5 Create an account and get referred today
+            <hr>
+            form#form
+              input(type="text" placeholder="Full name")#firstName.chess-input
+              input(type="text" placeholder="Email address")#email.chess-input.chess-input-long
+              input(type="submit" value="SUBMIT").chess-button
+          #footer
+            
+      // scripts
+      script(src='/static/js/particles.js')
+      script(src='/static/js/particles-app.js')
+      // stats.js
+      script.
+        var count_particles, stats, update;
+        stats = new Stats;
+        stats.setMode(0);
+        stats.domElement.style.position = 'absolute';
+        stats.domElement.style.left = '0px';
+        stats.domElement.style.top = '0px';
+        document.body.appendChild(stats.domElement);
+        count_particles = document.querySelector('.js-count-particles');
+        update = function() {
+          stats.begin();
+          stats.end();
+          if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+            count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+          }
+          requestAnimationFrame(update);
+        };
+        requestAnimationFrame(update);
+

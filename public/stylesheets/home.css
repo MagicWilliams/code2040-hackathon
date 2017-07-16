@@ -1,4 +1,5 @@
 @import './variable-map.css';
+@import './create-account.css';
 
 :root {
 	--color-text: #13203B; // almost black with some blue in it.
@@ -6,6 +7,19 @@
 	--color-primary: #5189FF;
 	--color-secondary: #28457F;
 	--color-tertiary: #3D67BF;
+}
+
+#particles-js {
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  background-size: cover;
+  background-position: 50% -50%;
+  background-repeat: no-repeat;
+}
+
+.particles-js-canvas-el {
+	margin-top: -30%;
 }
 
 #logo {
@@ -19,8 +33,9 @@
 	height: 10vh;
 	width: 101vw;
 	background-color: var(--color-primary);
-	position: relative;
-	left: -4.5vw;
+	position: absolute;
+	left: 0px;
+	top: 0px;
 }
 
 #navBar .chess-button {
@@ -31,4 +46,26 @@
 	line-height: 4vh;
 	height: 5vh;
 	width: 8vw;
+}
+
+#accountQuestions {
+	margin-top: 5vh;
+}
+
+#homeBody, #createAccount {
+	position: relative;
+	top: 17vh;
+}
+
+#homeBody {
+	background-color: transparent;
+}
+
+#footer {
+	height: 10vh;
+	width: 101vw;
+	background-color: var(--color-primary);
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
 }
