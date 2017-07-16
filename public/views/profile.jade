@@ -29,12 +29,36 @@ html
               h2 Reviews
               h4#reviewDesc Reviews are submitted by friends, family, and employers that can speak to a candidate's progression in work ethic, development of character, and advancement of ability.
               #reviews
-                .imgCropper.reviewerCropper
-                  img.reviewerPic()
                 h4.chess-h4 #{data.reviews}
           div#infoPane
             h4.chess-h4.underline Contact
             h5.chess-h5 P -- (562) 884-2006
             h5.chess-h5 E -- MWilliams@gmail.com
+    script(type="text/babel").
+      var Review = React.createClass({
+        render: function(){
+          return(
+            <div>
+              <h4>{this.props.reviewer}</h4>
+              <p id="reviewBody" className="chess-p">{this.props.reviewBody}</p>
+            </div>
+          );
+        }
+      });
+      
+      var ReviewSection = React.createClass({
+        render: function(){
+          return(
+            <div id="ReviewSection">
+              <Review name="#{data.username}" reviewerPicture="#{data.reviews[0].image}" reviewerURL="#{data}" reviewer="#{data.reviews[0].key1)" reviewBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae dolor non velit finibus pharetra." />
+              <Review name="#{data.username}" reviewerPicture="#{data.reviews[0].image}" reviewerURL="#{data}" reviewer="#{data.reviews[0].key1)" reviewBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae dolor non velit finibus pharetra." />
+              <Review name="#{data.username}" reviewerPicture="#{data.reviews[0].image}" reviewerURL="#{data}" reviewer="#{data.reviews[0].key1)" reviewBody="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae dolor non velit finibus pharetra." />
+            </div>
+          );
+        }
+      });
+
+      ReactDOM.render(<ReviewSection/>, document.getElementById('reviews'));
+        </script>
     
 
