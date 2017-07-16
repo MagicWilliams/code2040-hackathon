@@ -62,3 +62,8 @@ html {
 	color: var(--color-text);
 	width: 60%;
 }
+
+#infoPane {
+	position: relative;
+	top: -25vh;
+}
