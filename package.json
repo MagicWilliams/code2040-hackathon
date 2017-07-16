@@ -8,7 +8,6 @@
     "start": "node main.js",
     "watch-recs": "watchify ./public/static/js/components/recs/recs.js -t babelify -o ./public/static/js/bundle_recs.js --debug --verbose"
   },
-  "proxy": "http://localhost:2040",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MagicWilliams/kingdom.git"
