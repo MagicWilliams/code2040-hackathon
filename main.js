@@ -24,7 +24,7 @@ const app = express();
 
 app.use(express.static(`${__dirname}/public`));
 
-app.set('views', `${__dirname}/public/views`);
+app.set('views', `${__dirname }/public/views`);
 app.set('view engine', 'jade');
 app.set('port', (process.env.PORT || 2040));
 
@@ -34,16 +34,6 @@ app.get('/', (req, res) => {
   }, (errorObject) => {
     console.log(`The read failed: ${errorObject.code}`);
     res.render('index', { title: 'Home', data: 'error' });
-  });
-});
-
-app.get('/profile', (req, res) => {
-  ref.once('value', (snapshot) => {
-    console.log(snapshot.val());
-    res.render('profile', { title: "Magic's Profile", data: JSON.stringify(snapshot.val()), profileData: null });
-  }, (errorObject) => {
-    console.log(`The read failed: ${errorObject.code}`);
-    res.render('profile', { title: "Magic's Profile", data: 'error' });
   });
 });
 
@@ -57,17 +47,13 @@ app.get('/recs', (req, res) => {
   });
 });
 
-app.listen(app.get('port'), () => {
-  console.log(`Listening on port ${app.get('port')}.`);
-});
-
 app.get('/:user', (req, res) => {
   ref.once('value', (snapshot) => {
-    let userDb = snapshot.val().users;
+    const userDb = snapshot.val().users;
     console.log(userDb);
     res.render('profile', { title: "Magic's Profile", data: userDb[req.params.user] });
   }, (errorObject) => {
-    console.log(`The read failed: ${  errorObject.code}`);
+    console.log(`The read failed: ${errorObject.code}`);
     res.render('profile', { title: "Magic's Profile", data: 'error' });
   });
 });
@@ -76,9 +62,9 @@ app.get('/:user', (req, res) => {
 app.get('/oauth', (req, res) => {
   ref.once('value', (snapshot) => {
     console.log(snapshot.val());
-    res.sendFile(`${__dirname  }/public/views/oauth.html`);
+    res.sendFile(`${__dirname }/public/views/oauth.html`);
   }, (errorObject) => {
-    console.log(`The read failed: ${  errorObject.code}`);
+    console.log(`The read failed: ${errorObject.code}`);
     res.render('index', { title: 'oauth', data: 'error' });
   });
 });
@@ -105,6 +91,7 @@ app.get('/recs', (req, res) => {
 });
 
 app.listen(app.get('port'), () => {
+<<<<<<< 0decd4d1a59bd9bac6e76a42958af51d3b4860f3
   console.log(`Listening on port ${app.get('port') }.`);
 =======
 app.listen(app.get('port'), () => {
@@ -114,6 +101,9 @@ app.listen(app.get('port'), () => {
 =======
   console.log(`Listening on port ${  app.get('port')  }.`);
 >>>>>>> Update some main.js tings
+=======
+  console.log(`Listening on port ${app.get('port')}.`);
+>>>>>>> Fix thingie
 });
 
 function PROPRIETARY_MACHINE_LEARNING_NATURAL_LANGUAGE_PROCESSING_SENTIMENT_ANALYSIS_ALGORITHM(sentiment) {
@@ -144,12 +134,11 @@ function createUserProfile(userId, name) {
 function submitReview(userId, reviewerId, review) {
   const userRef = db.ref(`users/${userId}`);
   const reviewsRef = userRef.child('reviews');
-  return userRef.once('value')
-    .then((snapshot) => {
-      const reviews = snapshot.val().reviews;
-      reviews[reviewerId] = review;
-      reviewsRef.set(reviews);
-    });
+  return userRef.once('value').then((snapshot) => {
+    const reviews = snapshot.val().reviews;
+    reviews[reviewerId] = review;
+    reviewsRef.set(reviews);
+  });
 }
 // Use to set/update bio
 function updateBio(userId, bio) {
@@ -191,8 +180,11 @@ function updateScore(userId, score) {
     score
   });
 }
+<<<<<<< 0decd4d1a59bd9bac6e76a42958af51d3b4860f3
 <<<<<<< 549d444be005a0bd5b906ab50034d4d25494776b
 =======
 
 updateImage('userId1', '/static/img/headshot.png');
 >>>>>>> Update some main.js tings
+=======
+>>>>>>> Fix thingie
