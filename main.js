@@ -4,7 +4,6 @@ const admin = require('firebase-admin');
 const json3 = require('json3');
 const bodyParser = require('body-parser');
 const reviews = require('./public/static/js/reviews.json');
-const admin = require('firebase-admin');
 const emotional = require('emotional');
 
 // Fetch the service account key JSON file contents
@@ -59,16 +58,17 @@ app.get('/recs', (req, res) => {
 });
 
 app.listen(app.get('port'), () => {
-  console.log(`Listening on port ${app.get('port') }.`);
+  console.log(`Listening on port ${app.get('port')}.`);
+});
 
 app.get('/:user', (req, res) => {
   ref.once('value', (snapshot) => {
-    var userDb = snapshot.val().users;
+    let userDb = snapshot.val().users;
     console.log(userDb);
-    res.render('profile', { title : "Magic's Profile", data: userDb[req.params.user]});
+    res.render('profile', { title: "Magic's Profile", data: userDb[req.params.user] });
   }, (errorObject) => {
-    console.log('The read failed: ' + errorObject.code);
-    res.render('profile', { title : "Magic's Profile", data: 'error' });
+    console.log(`The read failed: ${  errorObject.code}`);
+    res.render('profile', { title: "Magic's Profile", data: 'error' });
   });
 });
 
@@ -76,10 +76,10 @@ app.get('/:user', (req, res) => {
 app.get('/oauth', (req, res) => {
   ref.once('value', (snapshot) => {
     console.log(snapshot.val());
-    res.sendFile(__dirname + '/public/views/oauth.html');
+    res.sendFile(`${__dirname  }/public/views/oauth.html`);
   }, (errorObject) => {
-    console.log('The read failed: ' + errorObject.code);
-    res.render('index', { title : 'oauth', data: 'error' });
+    console.log(`The read failed: ${  errorObject.code}`);
+    res.render('index', { title: 'oauth', data: 'error' });
   });
 });
 
@@ -108,8 +108,12 @@ app.listen(app.get('port'), () => {
   console.log(`Listening on port ${app.get('port') }.`);
 =======
 app.listen(app.get('port'), () => {
+<<<<<<< 549d444be005a0bd5b906ab50034d4d25494776b
 	console.log('Listening on port ' + app.get('port') + '.');
 >>>>>>> Remove extraneous log, ES6
+=======
+  console.log(`Listening on port ${  app.get('port')  }.`);
+>>>>>>> Update some main.js tings
 });
 
 function PROPRIETARY_MACHINE_LEARNING_NATURAL_LANGUAGE_PROCESSING_SENTIMENT_ANALYSIS_ALGORITHM(sentiment) {
@@ -140,11 +144,12 @@ function createUserProfile(userId, name) {
 function submitReview(userId, reviewerId, review) {
   const userRef = db.ref(`users/${userId}`);
   const reviewsRef = userRef.child('reviews');
-  return userRef.once('value').then((snapshot) => {
-    const reviews = snapshot.val().reviews;
-    reviews[reviewerId] = review;
-    reviewsRef.set(reviews);
-  });
+  return userRef.once('value')
+    .then((snapshot) => {
+      const reviews = snapshot.val().reviews;
+      reviews[reviewerId] = review;
+      reviewsRef.set(reviews);
+    });
 }
 // Use to set/update bio
 function updateBio(userId, bio) {
@@ -186,3 +191,8 @@ function updateScore(userId, score) {
     score
   });
 }
+<<<<<<< 549d444be005a0bd5b906ab50034d4d25494776b
+=======
+
+updateImage('userId1', '/static/img/headshot.png');
+>>>>>>> Update some main.js tings
