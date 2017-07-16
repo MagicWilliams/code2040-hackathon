@@ -38,28 +38,6 @@ app.get('/', (req, res) => {
   });
 });
 
-app.get('/:user', function (req, res) {
-  ref.once('value', function(snapshot) {
-    var userDb = snapshot.val().users;
-    console.log(userDb);
-    res.render('profile', { title : "Magic's Profile", data: userDb[req.params.user]});
-  }, function (errorObject) {
-    console.log('The read failed: ' + errorObject.code);
-    res.render('profile', { title : "Magic's Profile", data: 'error' });
-  });
-});
-
-// Log in with Facebook
-app.get('/oauth', function (req, res) {
-  ref.once('value', function(snapshot) {
-    console.log(snapshot.val());
-    res.sendFile(__dirname + '/public/views/oauth.html');
-  }, function (errorObject) {
-    console.log('The read failed: ' + errorObject.code);
-    res.render('index', { title : 'oauth', data: 'error' });
-  });
-});
-
 app.get('/profile', (req, res) => {
   ref.once('value', (snapshot) => {
     console.log(snapshot.val());
@@ -82,6 +60,56 @@ app.get('/recs', (req, res) => {
 
 app.listen(app.get('port'), () => {
   console.log(`Listening on port ${app.get('port') }.`);
+
+app.get('/:user', (req, res) => {
+  ref.once('value', (snapshot) => {
+    var userDb = snapshot.val().users;
+    console.log(userDb);
+    res.render('profile', { title : "Magic's Profile", data: userDb[req.params.user]});
+  }, (errorObject) => {
+    console.log('The read failed: ' + errorObject.code);
+    res.render('profile', { title : "Magic's Profile", data: 'error' });
+  });
+});
+
+// Log in with Facebook
+app.get('/oauth', (req, res) => {
+  ref.once('value', (snapshot) => {
+    console.log(snapshot.val());
+    res.sendFile(__dirname + '/public/views/oauth.html');
+  }, (errorObject) => {
+    console.log('The read failed: ' + errorObject.code);
+    res.render('index', { title : 'oauth', data: 'error' });
+  });
+});
+
+<<<<<<< eaefe30f42c687d950eaf6e6746f5fbfc0b06fc4
+app.get('/profile', (req, res) => {
+  ref.once('value', (snapshot) => {
+    console.log(snapshot.val());
+    res.render('profile', { title: "Magic's Profile", data: JSON.stringify(snapshot.val()), profileData: null });
+  }, (errorObject) => {
+    console.log(`The read failed: ${errorObject.code}`);
+    res.render('profile', { title: "Magic's Profile", data: 'error' });
+  });
+});
+
+app.get('/recs', (req, res) => {
+  ref.once('value', (snapshot) => {
+    console.log(snapshot.val());
+    res.render('recs', { title: 'Home', data: JSON.stringify(snapshot.val()) });
+  }, (errorObject) => {
+    console.log(`The read failed: ${errorObject.code}`);
+    res.render('recs', { title: 'Home', data: 'error' });
+  });
+});
+
+app.listen(app.get('port'), () => {
+  console.log(`Listening on port ${app.get('port') }.`);
+=======
+app.listen(app.get('port'), () => {
+	console.log('Listening on port ' + app.get('port') + '.');
+>>>>>>> Remove extraneous log, ES6
 });
 
 function PROPRIETARY_MACHINE_LEARNING_NATURAL_LANGUAGE_PROCESSING_SENTIMENT_ANALYSIS_ALGORITHM(sentiment) {
