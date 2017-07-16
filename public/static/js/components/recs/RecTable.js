@@ -12,7 +12,7 @@ const RecTable = (props) => {
   const rows = props.users.map((user, index) =>
     <tr key={index}>
       <td><img src={user.picture.thumbnail} /> {user.name.first} {user.name.last}</td>
-      <td>{user.email}</td>
+      <td style={{ verticalAlign: 'middle' }}>{user.email}</td>
     </tr>
   );
 

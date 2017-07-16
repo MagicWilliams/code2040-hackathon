@@ -12,11 +12,7 @@ class Recommendations extends Component {
   }
 
   componentDidMount() {
-    this.getNewUsers();
-  }
-
-  getNewUsers() {
-    return axios.get('https://randomuser.me/api/?results=20')
+    axios.get('https://randomuser.me/api/?results=20')
       .then(res => this.setState({ users: res.data.results }))
       .catch(err => console.log(err));
   }
