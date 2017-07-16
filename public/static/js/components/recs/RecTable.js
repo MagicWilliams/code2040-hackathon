@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 const RecTable = (props) => {
   // Display nothing if no data provided
-  if (props.users.length === 0) {
+  if (!props.users || props.users.length === 0) {
     return (
-      <h3>No one has given you a recommendation.</h3>
+      <h4>No one has given you a recommendation.</h4>
     );
   }
 
