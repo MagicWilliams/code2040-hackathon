@@ -47,17 +47,6 @@ app.get('/recs', (req, res) => {
   });
 });
 
-app.get('/:user', (req, res) => {
-  ref.once('value', (snapshot) => {
-    const userDb = snapshot.val().users;
-    console.log(userDb[req.params.user]);
-    res.render('profile', { title: "Magic's Profile", data: userDb[req.params.user] });
-  }, (errorObject) => {
-    console.log(`The read failed: ${errorObject.code}`);
-    res.render('profile', { title: "Magic's Profile", data: 'error' });
-  });
-});
-
 // Log in with Facebook
 app.get('/oauth', (req, res) => {
   ref.once('value', (snapshot) => {
@@ -86,6 +75,33 @@ app.get('/sentiment/:text', (req, res) => {
         emotional.get(req.params.text)
       ),
     });
+  });
+});
+
+app.get('/user_exists/:name_id', (req, res) => {
+  ref.once('value', (snapshot) => {
+    const userDb = snapshot.val().users;
+    var params = req.params.name_id.split("_");
+    var name = params[0];
+    var id = params[1];
+    var user = userDb[id];
+    // No user
+    if (user == undefined){
+      createUserProfile(id, name);
+    }
+    res.redirect("http://c3fed6cd.ngrok.io/" + String(id));
+  });
+});
+
+// This one has to be at the end.
+app.get('/:user', (req, res) => {
+  ref.once('value', (snapshot) => {
+    const userDb = snapshot.val().users;
+    console.log(userDb[req.params.user]);
+    res.render('profile', { title: "Magic's Profile", data: userDb[req.params.user] });
+  }, (errorObject) => {
+    console.log(`The read failed: ${errorObject.code}`);
+    res.render('profile', { title: "Magic's Profile", data: 'error' });
   });
 });
 
