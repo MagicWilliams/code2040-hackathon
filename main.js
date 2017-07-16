@@ -20,6 +20,7 @@ var db = admin.database();
 var ref = db.ref('/');
 var app = express();
 
+
 // Attach an asynchronous callback to read the data at our posts reference
 
 app.use(express.static(__dirname + '/public'));
@@ -37,10 +38,12 @@ app.get('/', function (req, res) {
   });
 });
 
-app.get('/profile', function (req, res) {
+console.log()
+app.get('/:user', function (req, res) {
   ref.once('value', function(snapshot) {
-    console.log(snapshot.val());
-    res.render('profile', { title : "Magic's Profile", data: JSON.stringify(snapshot.val()), profileData: null});
+    var userDb = snapshot.val().users;
+    console.log(userDb);
+    res.render('profile', { title : "Magic's Profile", data: userDb[req.params.user]});
   }, function (errorObject) {
     console.log('The read failed: ' + errorObject.code);
     res.render('profile', { title : "Magic's Profile", data: 'error' });
@@ -125,3 +128,5 @@ function updateScore(userId, score){
     score: score
   });
 }
+
+updateImage("userId1", "/static/img/headshot.png");
