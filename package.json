@@ -29,6 +29,8 @@
     "json3": "^3.3.2",
     "nib": "^1.1.2",
     "particles.js": "^2.0.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "stylus": "^0.54.5"
   },
   "engines": {
